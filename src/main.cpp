@@ -419,12 +419,12 @@ int main(void)
             usage_count++;
             display_active();
 
-            PORTD |= (1 << PD2);
+            PORTD &= ~(1 << PD2);
 
             usart_println("[STATE] Holding open for 4 s");
             _delay_ms(4000);
 
-            PORTD &= (1 << PD2);
+            PORTD |= (1 << PD2);
 
             usart_println("[STATE] Closing lid");
             servo_close_smooth();
